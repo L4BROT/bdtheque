@@ -1,0 +1,14 @@
+var exemplaire = new Map();
+exemplaire.set("1", {quantite: "3"});
+exemplaire.set("2", {quantite: "5"});
+exemplaire.set("3", {quantite: "2"});
+exemplaire.set("4", {quantite: "4"});
+exemplaire.set("6", {quantite: "1"});
+exemplaire.set("7", {quantite: "3"});
+exemplaire.set("8", {quantite: "2"});
+exemplaire.set("9", {quantite: "7"});
+exemplaire.set("10", {quantite: "4"});
+exemplaire.set("11", {quantite: "3"});
+exemplaire.set("13", {quantite: "2"});
+exemplaire.set("15", {quantite: "3"});
+exemplaire.set("18", {quantite: "4"});

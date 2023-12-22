@@ -1,0 +1,19 @@
+#erreurCo{
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.positionnement{
+    display: flex;
+    margin: auto;
+    width: 50%;
+}
+
+#btnConnexion{
+    width: 50%;
+}

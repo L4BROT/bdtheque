@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/admin.css" />
+    <title>BD - Gestion Administration</title>
+</head>
+
+    <body>
+
+    <!-- BARRE DE NAVIGATION -->
+
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="ressources/img/logo.png" alt="logo bulle de BD" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 liens_nav" id="dropNav">                   
+                        <li class="nav-item dropdown" id="navAuteur"></li>
+                        <li class="nav-item dropdown" id="navSerie"></li>
+                    </ul>
+                    <form class="d-flex" role="search" method="get">
+                        <div class="search">
+                            <input id="searchBar" name="search" class="form-control me-2 searchInput" type="search" placeholder="Recherche" aria-label="Search" />
+                            <a class="mesicones btnSearch" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </div>
+                    </form>
+                    <span class="mesicones" id="monProfil">
+                        <i class="fa-regular fa-user" ></i>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <div id="statut" class="d-none">
+            <div id="affichageUser"></div>
+            <div id="deconnexion"><input type="button" class="decoBtn" value="Déconnexion"></div>
+        </div>
+
+        <!--Tableau de bord-->
+
+        <div class="container" id="top_admin">
+            <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 bg-cont">
+                <h2 class="text-center">Tableau de bord</h2>
+                <div class="text-center">
+                    <!-- Bouton principal du menu déroulant -->
+                    <div class="dropdown position-relative">
+                        <button class="btn btn-success btnStyle dropdown-toggle p-1" style="font-size: 20px w-40;" type="button" id="dashboardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sélectionnez
+                        </button>
+                        <ul class="dropdown-menu text-center bg-white" aria-labelledby="dashboardDropdown">
+                            <!-- Options du menu déroulant -->
+                            <li><button class="dropdown-item" type="button" id="inscriptionLink">Inscription</button></li>
+                            <li><button class="dropdown-item" type="button" id="listUserLink">Liste employés</button></li>
+                            <li><button class="dropdown-item" type="button" id="detailUserLink">Détail adhérent</button></li>
+                            <li><button class="dropdown-item" type="button" id="pretLink">Enregistrer un prêt</button></li>
+                            <li><button class="dropdown-item" type="button" id="retourLink">Enregistrer un retour</button></li>
+                        </ul>
+                    </div>
+                </div><br>
+                <!-- Bouton "Refresh database" en dehors du menu déroulant -->
+                <div class="text-center">
+                    <button type="button" class="btn btn-success btnStyle" style="font-size: 12px; margin-bottom: 10px;" id="dataFlush" tabindex="13">Refresh database</button>
+                </div><br>
+            </div>
+        </div>
+
+        <!--Inscription-->
+
+        <div class="container mt-3" id="affichageForm">
+            <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 bg-cont mt-3 bg-cont">
+                <form action="#" id="crea" class="menu-form">
+                    <h2 class="text-center">Inscription</h2>
+
+                    <div class="mb-1">
+                        <label class="titres" for="email"></label>
+                        <input type="email" placeholder="Adresse mail" name="email" id="email" class="form-control mx-auto" required="required" tabindex="2" />
+                    </div>
+                    <div class="mb-1">
+                        <label class="titres" for="prenom"></label>
+                        <input type="text" placeholder="Prénom" name="prenom" id="prenom" class="form-control mx-auto" tabindex="1" pattern="[A-Za-z\s\-]+" title="Veuillez saisir uniquement des lettres, des espaces ou des tirets" />
+                    </div>
+                    <div class="mb-1">
+                        <label class="titres" for="nom"></label>
+                        <input type="text" placeholder="Nom" name="nom" id="nom" class="form-control mx-auto" tabindex="1" pattern="[A-Za-z\s\-]+" title="Veuillez saisir uniquement des lettres, des espaces ou des tirets" />
+                    </div>
+                    <div class="mb-1">
+                        <label class="titres" for="mdp"></label>
+                        <input type="text" placeholder="Mot de passe" name="mdp" id="mdp" class="form-control mx-auto" required="required" />
+                    </div>
+                    <div class="mb-1">
+                        <label class="titres" for="mdpConf"></label>
+                        <input type="text" placeholder="Confirmez mot de passe" name="mdpConf" id="mdpConf" class="form-control mx-auto" required="required" />
+                    </div>
+                    <br>
+                    <div class="mb-1">
+                        <select name="role" id="role" class="form-select form-control mx-auto">
+                            <option value="3">Adhérent</option>
+                            <option value="2">Gestionnaire</option>
+                            <option value="1">Administrateur</option>
+                        </select>
+                    </div>
+                    <div id="erreurCrea"></div><br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success mb-2" style="font-size: 15px; margin-bottom: 10px;" id="btnInscription" tabindex="13">Valider</button>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+
+        <div id="listUser">
+            <div class="container mx-auto col-12 col-md-10 col-lg-7 bg-cont mt-3 table-responsive">
+                <h2>Liste Employés</h2>
+                
+                <!-- Ajout de l'ID au tableau -->
+
+                <table class="table table-success table-striped table-bordered table-hover" id="tableauMembres">
+
+                <!-- En-têtes du tableau -->
+
+                    <thead>
+                        <tr>
+                            <th>Prénom</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <!-- Corps du tableau sera rempli via JavaScript -->
+                    <tbody id="tableauAffichage">
+
+                    </tbody>
+                </table><br>
+            </div>
+        </div>
+
+        <div class="container mt-3" id="detailUser">
+            <div class="mx-auto col-12 col-sm-12 col-md-10 col-lg-7 bg-cont mt-3">
+                <h2>Détail adhérent</h2>
+
+                <form action="#" id="formDetail">
+                    <div class="mx-auto col-12 col-sm-7 col-md-7 col-lg-7 mb-1">
+                        <select name="selectUserMail" id="selectUserMailDetail" class="form-select form-control mx-auto">
+            
+                        </select>
+                    </div><br>
+                </form>
+
+                <!-- OK en dessous -->
+                <div class="row mx-auto">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Nom : </h5>
+                                <p class="card-text" id="nomPrenom"></p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">E-mail : </h5>
+                                <p class="card-text" id="emailDetail"></p>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Rôle : </h5>
+                                <p class="card-text" id="roleDetail"></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Cotisation : </h5>
+                                <p class="card-text" id="cotisations"></p>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Amendes : </h5>
+                                <p class="card-text" id="amendes"></p>
+                            </div>
+                        </div>
+        
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Dates d'emprunt : </h5>
+                                <p class="card-text" id="datesEmprunt"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">BD empruntées</h5>
+                                <p class="card-text" id="bdEmprunt"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="divPret">
+            <div class="container col-12 col-md-11 col-lg-7 bg-cont mt-3">
+                <h2>Enregistrer un prêt</h2>
+
+                <form action="#" class="d-flex justify-content-center" id="formDetail">
+                    <select name="selectUserPret" id="selectUserPret" class="form-select btnStyle text-center w-100 me-1"></select>
+                    <input type="text" placeholder="ID de la BD" name="inputEmprunt" id="inputEmprunt" class="form-control me-1"/>
+                    <button class="btn btn-outline-warning btnSearch" id="btnSearchPret">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
+                <div class="mt-1" id="affichagePret"></div>
+                <div id="affichageErrPret"></div>
+                <div class="text-center mt-3 mb-2">
+                    <button type="button" class="btn btn-success me-5" style="font-size: 15px; margin-bottom: 10px;" id="pretBtn">Valider</button>
+                    <button type="button" class="btn btn-success" style="font-size: 15px; margin-bottom: 10px;" id="refreshBtn">Refresh</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mt-3" id="divRetour">
+            <div class="mx-auto col-sm-11 col-md-8 col-lg-7 bg-cont">
+                    <h2>Enregistrer un retour</h2>
+
+                    <form action="#" id="formDetailRetour" class="mx-auto col-12 col-sm-7 col-md-8 col-lg-7 mb-2">
+                        <select name="selectUserRetour" id="selectUserRetour" class="form-select form-control mx-auto"></select>
+                    </form>
+
+                    <div id="bdRetour" class="bg-white mb-2"></div>
+                    <div id="affichageErrRetour" class="bg-white mb-2" ></div>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success mb-2" style="font-size: 15px; margin-bottom: 10px;" id="retourBtn">Valider</button>
+                    </div>
+                </div>
+       </div>
+
+        <!-- <script src="dashborad.js"></script> -->
+
+        <script src="https://kit.fontawesome.com/5d6e16c664.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="ressources/data/albums.js"></script>
+        <script src="ressources/data/series.js"></script>
+        <script src="ressources/data/auteurs.js"></script>
+        <script src="js/utilisateurs_map.js"></script>
+        <script src="js/adherent_map.js"></script>
+        <script src="js/exemplaires_map.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/page_admin.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,15 @@
+h1 {
+    text-align: center;
+}
+body {
+    font-family: "poppins";
+    background-color: rgb(197, 196, 196)
+}
+
+#detail_top{
+    margin-top: 125px;
+}
+
+.carte-details {
+    height: 90px;
+}

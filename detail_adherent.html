@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/affiche_adherent.css" />
+        <title>BD - Accueil</title>
+    </head>
+
+    <body>
+
+        <!-- BARRE DE NAVIGATION -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="ressources/img/logo.png" alt="logo bulle de BD" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 liens_nav" id="dropNav">                   
+                        <li class="nav-item dropdown" id="navAuteur"></li>
+                        <li class="nav-item dropdown" id="navSerie"></li>
+                    </ul>
+                    <form class="d-flex" role="search" method="get">
+                        <div class="search">
+                            <input id="searchBar" name="search" class="form-control me-2 searchInput" type="search" placeholder="Recherche" aria-label="Search" />
+                            <a class="mesicones btnSearch" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </div>
+                    </form>
+                    <span class="mesicones" id="monProfil">
+                        <i class="fa-regular fa-user" ></i>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <div id="statut" class="d-none">
+            <div id="affichageUser"></div>
+            <div id="deconnexion"><input type="button" class="decoBtn" value="Déconnexion"></div>
+        </div>
+
+    <!-- Infos adhérent -->
+        <div class="container bg-cont" id="detail_top">
+            <h1 class="text-center">Mes informations personnelles</h1>
+    
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">Nom et Prénom : </h5>
+                            <p class="card-text" id="nomPrenom"></p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">E-mail : </h5>
+                            <p class="card-text" id="email"></p>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">Statut : </h5>
+                            <p class="card-text" id="role"></p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">Cotisations : </h5>
+                            <p class="card-text" id="cotisations"></p>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">Amendes : </h5>
+                            <p class="card-text" id="amendes"></p>
+                        </div>
+                    </div>
+    
+                    <div class="card mb-3 carte-details">
+                        <div class="card-body">
+                            <h5 class="card-title">Date de restitution : </h5>
+                            <p class="card-text" id="datesEmprunt"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">BD empruntées</h5>
+                            <div class="">
+                                <p class="card-text" id="bdEmprunt"></p>
+                                <p class="card-text" id="bdImage"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts javascript -->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5d6e16c664.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="ressources/data/albums.js"></script>
+        <script src="ressources/data/series.js"></script>
+        <script src="ressources/data/auteurs.js"></script>
+        <script src="js/utilisateurs_map.js"></script>
+        <script src="js/adherent_map.js"></script>
+        <script src="js/exemplaires_map.js"></script>
+        <script src="js/global.js"></script>
+        <script src="ressources/data/series.js"></script>
+        <script src="js/detail_adherent.js"></script>
+        
+    </body>
+</html>

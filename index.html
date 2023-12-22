@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/connexion.css" />
+        <title>BD - Accueil</title>
+    </head>
+
+    <body>
+
+    <!-- BARRE DE NAVIGATION -->
+
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="ressources/img/logo.png" alt="logo bulle de BD" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 liens_nav" id="dropNav">                   
+                        <li class="nav-item dropdown" id="navAuteur"></li>
+                        <li class="nav-item dropdown" id="navSerie"></li>
+                    </ul>
+                    <form class="d-flex" role="search" method="get">
+                        <div class="search">
+                            <input id="searchBar" name="search" class="form-control me-2 searchInput" type="search" placeholder="Recherche" aria-label="Search" />
+                            <a class="mesicones btnSearch" href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </div>
+                    </form>
+                    <span class="mesicones" id="monProfil">
+                        <i class="fa-regular fa-user" ></i>
+                    </span>
+                </div>
+            </div>
+        </nav>
+
+        <main id ="main" class="container">
+            <div id="statut" class="d-none">
+                <div id="affichageUser"></div>
+                <div id="deconnexion"><input type="button" class="decoBtn" value="Déconnexion"></div>
+            </div>
+            <div id="erreurCo"></div>
+            <div class="row justify-content-around mt-3">
+
+    <!-- CARROUSEL -->
+
+                <div class="col col-lg-7 bg-cont" id="carrousel">
+                    <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div id="dynCarrousel"></div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col col-lg-4 d-none d-lg-block bg-cont" id="connect">
+                    <form action="page_adherent.html" id="conn">
+                        <h2 class="text-center">Espace membres</h2>
+                        <div class="">
+                            <input type="email" placeholder="Adresse mail" name="emailCo" id="emailCo" class="form-control mx-auto mb-3 mt-3" required="required" tabindex="2" />
+                        </div>
+                        <div class="">
+                            <input type="password" placeholder="Mot de passe" name="mdpCo" id="mdpCo" class="form-control mx-auto m-1" required="required" />
+                        </div>
+                        <br>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-success" id ="btnConnexion" tabindex="13">Valider</button>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+
+    <!-- TEXTE ACCUEIL -->
+
+                <div class="col-lg-12 p-4 mx-auto text-center" id="introTxt">
+                    <h1>Bienvenue dans votre BDthèque</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, est sapiente? Dicta libero debitis nostrum amet, cupiditate cum nisi id laborum assumenda sunt natus minima aut quia ex nulla voluptatem.</p>
+                </div>
+
+    <!-- ZONE DE RECHERCHE -->
+
+                <div class="col-lg-12 bg-cont" id="searchIndex">
+                    <form method="get"></form>
+                        <div class="zone_recherche row px-4 justify-content-around mx-auto">
+                            <div class="input_recherche col-md-5">
+                                <input type="search" placeholder="Recherche" name="search" id="search" class="searchInput" />
+                                <button class="btn btn-outline-warning btnSearch">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                            <div class="filtres_recherche col-md-7 my-auto p-auto">
+                                <select name="tri" id="tri" class="form-select-sm">
+                                    <option value="1">Ordre alphabétique</option>
+                                    <option value="2">Ordre inverse</option>
+                                    <option value="3">Date de disponibilité</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+    <!-- DIV pour affichage des résultats de recherche -->
+
+        <div class="container">
+            <div id="searchResult" class="row text-center justify-content-center"></div>
+        </div>
+
+    <!-- Scripts javascript -->
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5d6e16c664.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="ressources/data/albums.js"></script>
+        <script src="ressources/data/series.js"></script>
+        <script src="ressources/data/auteurs.js"></script>
+        <script src="js/adherent_map.js"></script>
+        <script src="js/utilisateurs_map.js"></script>
+        <script src="js/exemplaires_map.js"></script>
+        <script src="js/global.js"></script>
+        <script src="js/recherche.js"></script>
+        <script src="js/connexion.js"></script>
+
+    </body>
+</html>
