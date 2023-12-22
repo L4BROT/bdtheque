@@ -19,7 +19,7 @@
 }
 
 .dropdown-menu {
-    max-height: 150px; 
+    max-height: auto; 
     overflow-y: auto;
 }
 
@@ -28,9 +28,10 @@
     color: #000000;
 }
 
-/* .btnStyle{
-    width: 60%;
-} */
+.my-dropdown-menu {
+    max-height: 150px;
+    overflow-y: auto;
+}
 
 #btnAffichageUser{
     margin-top: 10px;
@@ -40,10 +41,6 @@
 #selectUserMail{
     width: 30%;
 }
-
-/* #btnInscription{
-    width: 50%;
-} */
 
 #top_admin{
     margin-top: 125px;

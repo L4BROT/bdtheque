@@ -31,6 +31,7 @@ var imgSrc;
 
 initialisation();
 
+
 // ADDEVENTLISTENERS
 
 // Transition au chargement de la page
@@ -51,13 +52,6 @@ headerSearch.addEventListener("click", function() {
     // Définir le focus sur l'input text
     inputRecherche[0].focus();
 });
-
-// tri.addEventListener("change", function(e) {
-//     var triVal = e.target.value;
-//     var triUrl = { tri: triVal };
-//     // Mettre à jour l'URL sans recharger la page
-//     history.pushState(triUrl, document.title, window.location.href + "&tri=" + encodeURIComponent(triVal));
-// });
 
 
 // FONCTIONS

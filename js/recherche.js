@@ -88,7 +88,7 @@ window.onload = function () {
             resultat += '<div class="carousel-item'
                         + actif +'"><div class="col-12 col-sm-auto"><img src="' 
                         + imgSrc + '" alt="' 
-                        + titreAlbm + '" loading="lazy"></div><div class="col-12 col-sm-8 carousel-caption d-md-block"><h3>' 
+                        + titreAlbm + '" /></div><div class="col-12 col-sm-8 carousel-caption d-md-block"><h3>' 
                         + titreAlbm + '</h3><p>Série : <a href="index.html?serie=' 
                         + numSerie + '">' 
                         + nomSerie + '</a><br />Auteurs : ' 
@@ -128,7 +128,7 @@ window.onload = function () {
         listeAlbum = '<div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-2"><div class="listeAlbum card"><img data-bs-toggle="modal" id="' 
                         + id + '" class="card-img-top" alt="' 
                         + titreAlbm + '" src="' 
-                        + imgSrc + '" loading="lazy" /><h3>' 
+                        + imgSrc + '" /><h3>' 
                         + titreAlbm + '</h3></div></div>';
     
         return listeAlbum;

@@ -59,7 +59,7 @@
                         <button class="btn btn-success btnStyle dropdown-toggle p-1" style="font-size: 20px w-40;" type="button" id="dashboardDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Sélectionnez
                         </button>
-                        <ul class="dropdown-menu text-center bg-white" aria-labelledby="dashboardDropdown">
+                        <ul class="dropdown-menu my-dropdown-menu text-center bg-white" aria-labelledby="dashboardDropdown">
                             <!-- Options du menu déroulant -->
                             <li><button class="dropdown-item" type="button" id="inscriptionLink">Inscription</button></li>
                             <li><button class="dropdown-item" type="button" id="listUserLink">Liste employés</button></li>
@@ -147,7 +147,7 @@
         </div>
 
         <div class="container mt-3" id="detailUser">
-            <div class="mx-auto col-12 col-sm-12 col-md-10 col-lg-7 bg-cont mt-3">
+            <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 bg-cont mt-3">
                 <h2>Détail adhérent</h2>
 
                 <form action="#" id="formDetail">
@@ -219,7 +219,7 @@
         </div>
 
         <div id="divPret">
-            <div class="container col-12 col-md-11 col-lg-7 bg-cont mt-3">
+            <div class="container mx-auto col-sm-11 col-md-9 col-lg-7 bg-cont mt-3">
                 <h2>Enregistrer un prêt</h2>
 
                 <form action="#" class="d-flex justify-content-center" id="formDetail">
@@ -240,14 +240,14 @@
         </div>
 
         <div class="container mt-3" id="divRetour">
-            <div class="mx-auto col-sm-11 col-md-8 col-lg-7 bg-cont">
+            <div class="mx-auto col-sm-11 col-md-9 col-lg-7 bg-cont">
                     <h2>Enregistrer un retour</h2>
 
                     <form action="#" id="formDetailRetour" class="mx-auto col-12 col-sm-7 col-md-8 col-lg-7 mb-2">
                         <select name="selectUserRetour" id="selectUserRetour" class="form-select form-control mx-auto"></select>
                     </form>
 
-                    <div id="bdRetour" class="bg-white mb-2"></div>
+                    <div id="bdRetour" class="bg-white rounded-4 m-3 mb-2"></div>
                     <div id="affichageErrRetour" class="bg-white mb-2" ></div>
                     <div class="text-center">
                         <button type="button" class="btn btn-success mb-2" style="font-size: 15px; margin-bottom: 10px;" id="retourBtn">Valider</button>
